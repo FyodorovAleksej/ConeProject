@@ -3,7 +3,6 @@ package by.fyodorov.coneproject.validator;
 import by.fyodorov.coneproject.entity.ConeEntity;
 import by.fyodorov.coneproject.entity.PointEntity;
 import by.fyodorov.coneproject.exception.ConeException;
-import by.fyodorov.coneproject.processing.ConeProcessing;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -69,10 +68,10 @@ public class ConeValidator {
         str = str.replaceAll("[()]","");
         double[] doubles = Arrays.stream(str.split(",")).flatMapToDouble((s)-> DoubleStream.of(Double.parseDouble(s))).toArray();
         ConeEntity cone = new ConeEntity(new PointEntity(doubles[0], doubles[1], doubles[2]), doubles[3], new PointEntity(doubles[4], doubles[5], doubles[6]));
-        ConeProcessing processing = new ConeProcessing();
-        if (!processing.isCone(cone)) {
-            throw new ConeException("invalid cone: \"" + str + "\"");
-        }
+       // ConeProcessing processing = new ConeProcessing();
+       // if (!processing.isCone(cone)) {
+       //     throw new ConeException("invalid cone: \"" + str + "\"");
+       // }
         return cone;
     }
 
