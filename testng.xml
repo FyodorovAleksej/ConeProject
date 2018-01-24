@@ -18,6 +18,22 @@
                     <include name="testGetSquare"/>
                 </methods>
             </class>
+            <class name="test.fyodorov.coneproject.processing.FileProcessingTest">
+                <methods>
+                    <include name="createAllTest"/>
+                    <include name="testCreateAllNegative"/>
+                    <include name="testValidateAll"/>
+                </methods>
+            </class>
+            <class name="test.fyodorov.coneproject.processing.ConeAutoTest">
+                <methods>
+                    <include name="testCoordDivisionAll"/>
+                    <include name="testCoordStateAll"/>
+                    <include name="testIsConeAll"/>
+                    <include name="testSquareAll"/>
+                    <include name="testVolumeAll"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

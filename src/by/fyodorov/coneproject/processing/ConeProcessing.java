@@ -9,7 +9,7 @@ import org.apache.logging.log4j.Logger;
  * class with logic operations of Cone
  */
 public class ConeProcessing {
-    private static final Logger log = LogManager.getLogger(ConeProcessing.class);
+    private static final Logger LOGGER = LogManager.getLogger(ConeProcessing.class);
 
     /**
      * getting volume of cone
@@ -17,7 +17,7 @@ public class ConeProcessing {
      * @return volume of this cone
      */
     public double getVolume(ConeEntity cone) {
-        log.info("getting volume \"" + cone + "\"");
+        LOGGER.info("getting volume \"" + cone + "\"");
         return (getVectorLength(cone.getCenter(), cone.getTop()) * Math.PI * Math.pow(cone.getRadius(), 2) / 3);
     }
 
@@ -27,8 +27,13 @@ public class ConeProcessing {
      * @return all area of cone
      */
     public double getSquare(ConeEntity cone) {
-        log.info("getting square \"" + cone + "\"");
-        return ((Math.hypot(getVectorLength(cone.getCenter(), cone.getTop()), cone.getRadius()) + cone.getRadius()) * Math.PI * cone.getRadius());
+        LOGGER.info("getting square \"" + cone + "\"");
+        if (isCone(cone)) {
+            return ((Math.hypot(getVectorLength(cone.getCenter(), cone.getTop()), cone.getRadius()) + cone.getRadius()) * Math.PI * cone.getRadius());
+        }
+        else {
+            return 0;
+        }
     }
 
     /**
@@ -37,7 +42,7 @@ public class ConeProcessing {
      * @return is the cone base is in the coordinates plane?
      */
     public boolean coordinateState(ConeEntity cone) {
-        log.info("getting coordinate state \"" + cone + "\"");
+        LOGGER.info("getting coordinate state \"" + cone + "\"");
         double x1 = cone.getCenter().getX();
         double y1 = cone.getCenter().getY();
         double z1 = cone.getCenter().getZ();
@@ -57,7 +62,7 @@ public class ConeProcessing {
      * @return division coefficient
      */
     public double coordinateDivision(ConeEntity cone) {
-        log.info("getting coordinate division \"" + cone + "\"");
+        LOGGER.info("getting coordinate division \"" + cone + "\"");
         if (!coordinateState(cone)) {
             double x1 = cone.getCenter().getX();
             double y1 = cone.getCenter().getY();
@@ -93,7 +98,7 @@ public class ConeProcessing {
      * @return is figure was cone?
      */
     public boolean isCone(ConeEntity cone) {
-        log.info("isCone? \"" + cone + "\"");
+        LOGGER.info("isCone? \"" + cone + "\"");
         return (cone.getRadius() > 0 && !cone.getCenter().equals(cone.getTop()));
     }
 

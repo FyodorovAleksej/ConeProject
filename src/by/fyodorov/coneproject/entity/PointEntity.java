@@ -45,31 +45,6 @@ public class PointEntity {
         return z;
     }
 
-
-    /**
-     * setting x coordinate
-     * @param x x coordinate
-     */
-    public void setX(double x) {
-        this.x = x;
-    }
-
-    /**
-     * setting y coordinate
-     * @param y y coordinate
-     */
-    public void setY(double y) {
-        this.y = y;
-    }
-
-    /**
-     * setting z coordinate
-     * @param z z coordinate
-     */
-    public void setZ(double z) {
-        this.z = z;
-    }
-
     @Override
     public String toString() {
         return "(" + x + ", " + y + ", " + z + ")";

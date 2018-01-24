@@ -44,31 +44,6 @@ public class ConeEntity {
         return radius;
     }
 
-    /**
-     * setting top point of cone
-     * @param top top point of cone
-     */
-    public void setTop(PointEntity top) {
-        this.top = top;
-    }
-
-    /**
-     * setting base center point
-     * @param center base center point
-     */
-    public void setCenter(PointEntity center) {
-        this.center = center;
-    }
-
-    /**
-     * setting base radius
-     * @param radius base radius
-     */
-    public void setRadius(double radius) {
-        this.radius = radius;
-    }
-
-
     @Override
     public String toString() {
         return center.toString() + "; " + radius + "; " + top;
