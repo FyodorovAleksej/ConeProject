@@ -1,8 +1,7 @@
-package test.fyodorov.coneproject.processing;
+package test.fyodorov.coneproject.action;
 
 import by.fyodorov.coneproject.entity.ConeEntity;
-import by.fyodorov.coneproject.exception.ConeException;
-import by.fyodorov.coneproject.processing.ConeCreator;
+import by.fyodorov.coneproject.action.ConeCreator;
 import by.fyodorov.coneproject.validator.ConeValidator;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -11,7 +10,6 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import test.fyodorov.coneproject.help.TestHelper;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class FileProcessingTest {

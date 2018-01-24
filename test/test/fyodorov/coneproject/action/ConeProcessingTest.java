@@ -1,8 +1,8 @@
-package test.fyodorov.coneproject.processing;
+package test.fyodorov.coneproject.action;
 
 import by.fyodorov.coneproject.entity.ConeEntity;
 import by.fyodorov.coneproject.entity.PointEntity;
-import by.fyodorov.coneproject.processing.ConeProcessing;
+import by.fyodorov.coneproject.action.ConeProcessing;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -20,7 +20,7 @@ public class ConeProcessingTest {
     }
 
     @Test
-    public void testGetSquareBasePositive() {
+    public void testGetSquareBasePositive() throws Exception {
         ConeEntity coneEntity = new ConeEntity(new PointEntity(1,0,0), 3, new PointEntity(5,0,0));
         ConeProcessing processing = new ConeProcessing();
         double expected = 75.39816;
@@ -29,7 +29,7 @@ public class ConeProcessingTest {
     }
 
     @Test
-    public void testGetSquareIsoPositive() {
+    public void testGetSquareIsoPositive() throws Exception {
         ConeEntity coneEntity = new ConeEntity(new PointEntity(4, 4, 1), 3, new PointEntity(4, 4, 5));
         ConeProcessing processing = new ConeProcessing();
         double actual = processing.getSquare(coneEntity);
@@ -38,7 +38,7 @@ public class ConeProcessingTest {
     }
 
     @Test
-    public void testGetSquareNegative() {
+    public void testGetSquareNegative() throws Exception {
         ConeEntity coneEntity = new ConeEntity(new PointEntity(4,4,1), 20, new PointEntity(4,4,1));
         ConeProcessing processing = new ConeProcessing();
         double actual = processing.getSquare(coneEntity);
@@ -50,7 +50,7 @@ public class ConeProcessingTest {
 
 
     @Test
-    public void testGetVolumePositive() {
+    public void testGetVolumePositive() throws Exception {
         ConeEntity coneEntity = new ConeEntity(new PointEntity(2,4,1), 4, new PointEntity(4,4,1));
         ConeProcessing processing = new ConeProcessing();
         double actual = processing.getVolume(coneEntity);
@@ -59,7 +59,7 @@ public class ConeProcessingTest {
     }
 
     @Test
-    public void testGetVolumeIsoPositive() {
+    public void testGetVolumeIsoPositive() throws Exception {
         ConeEntity coneEntity = new ConeEntity(new PointEntity(2, 6, 1), 3, new PointEntity(4, 4, 3));
         ConeProcessing processing = new ConeProcessing();
         double actual = processing.getVolume(coneEntity);
@@ -68,7 +68,7 @@ public class ConeProcessingTest {
     }
 
     @Test
-    public void testGetVolumeNegative() {
+    public void testGetVolumeNegative() throws Exception {
         ConeEntity coneEntity = new ConeEntity(new PointEntity(4,4,1), 20, new PointEntity(4,4,1));
         ConeProcessing processing = new ConeProcessing();
         double actual = processing.getVolume(coneEntity);
@@ -76,10 +76,8 @@ public class ConeProcessingTest {
         Assert.assertEquals(actual, expected, "Volume Negative Test Failed");
     }
 
-
-
         @Test
-    public void testCoordinateDivisionPositive() {
+    public void testCoordinateDivisionPositive() throws Exception {
         ConeEntity coneEntity = new ConeEntity(new PointEntity(0,0,-2), 3, new PointEntity(0,0,2));
         ConeProcessing processing = new ConeProcessing();
         double actual = processing.coordinateDivision(coneEntity);
@@ -88,7 +86,7 @@ public class ConeProcessingTest {
     }
 
     @Test
-    public void testCoordinateDivisionNegative() {
+    public void testCoordinateDivisionNegative() throws Exception {
         ConeEntity coneEntity = new ConeEntity(new PointEntity(0,0,-2), 3, new PointEntity(0,2,2));
         ConeProcessing processing = new ConeProcessing();
         double actual = processing.coordinateDivision(coneEntity);
@@ -97,7 +95,7 @@ public class ConeProcessingTest {
     }
 
     @Test
-    public void testCoordinateDivisionCordNegative() {
+    public void testCoordinateDivisionCordNegative() throws Exception {
         ConeEntity coneEntity = new ConeEntity(new PointEntity(6,6,0), 5, new PointEntity(6,6,20));
         ConeProcessing processing = new ConeProcessing();
         double actual = processing.coordinateDivision(coneEntity);
@@ -109,14 +107,14 @@ public class ConeProcessingTest {
 
 
     @Test
-    public void testCoordinateStatePositive() {
+    public void testCoordinateStatePositive() throws Exception {
         ConeEntity coneEntity = new ConeEntity(new PointEntity(2,5,0), 5, new PointEntity(2,5,4));
         ConeProcessing processing = new ConeProcessing();
         Assert.assertTrue(processing.coordinateState(coneEntity), "Coordinate State Failed");
     }
 
     @Test
-    public void testCoordinateStateNegative() {
+    public void testCoordinateStateNegative() throws Exception {
         ConeEntity coneEntity = new ConeEntity(new PointEntity(1,2,0), 5, new PointEntity(2,3,4));
         ConeProcessing processing = new ConeProcessing();
         Assert.assertFalse(processing.coordinateState(coneEntity), "Coordinate State Failed");
@@ -125,21 +123,21 @@ public class ConeProcessingTest {
 
 
     @Test
-    public void testIsConePositive() {
+    public void testIsConePositive() throws Exception {
         ConeEntity coneEntity = new ConeEntity(new PointEntity(1,2,0), 5, new PointEntity(2,3,4));
         ConeProcessing processing = new ConeProcessing();
         Assert.assertTrue(processing.isCone(coneEntity), "Is Cone Failed");
     }
 
     @Test
-    public void testIsConeRadiusNegative() {
+    public void testIsConeRadiusNegative() throws Exception {
         ConeEntity coneEntity = new ConeEntity(new PointEntity(1,2,0), -4, new PointEntity(2,3,4));
         ConeProcessing processing = new ConeProcessing();
         Assert.assertFalse(processing.isCone(coneEntity), "Is Cone Failed");
     }
 
     @Test
-    public void testIsConePointNegative() {
+    public void testIsConePointNegative() throws Exception {
         ConeEntity coneEntity = new ConeEntity(new PointEntity(2,2,0), 4, new PointEntity(2,2,0));
         ConeProcessing processing = new ConeProcessing();
         Assert.assertFalse(processing.isCone(coneEntity), "Is Cone Failed");

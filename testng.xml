@@ -3,7 +3,7 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="C:/Users/Alexey/Documents/GitHub/ConeProject/test/test/fyodorov/coneproject/processing/ConeProcessingTest.java">
         <classes>
-            <class name="test.fyodorov.coneproject.processing.ConeProcessingTest">
+            <class name="test.fyodorov.coneproject.action.ConeProcessingTest">
                 <methods>
                     <include name="testGetVolumeBasePositive"/>
                     <include name="testGetVolumeIsoPositive"/>
@@ -18,14 +18,14 @@
                     <include name="testGetSquare"/>
                 </methods>
             </class>
-            <class name="test.fyodorov.coneproject.processing.FileProcessingTest">
+            <class name="test.fyodorov.coneproject.action.FileProcessingTest">
                 <methods>
                     <include name="createAllTest"/>
                     <include name="testCreateAllNegative"/>
                     <include name="testValidateAll"/>
                 </methods>
             </class>
-            <class name="test.fyodorov.coneproject.processing.ConeAutoTest">
+            <class name="test.fyodorov.coneproject.action.ConeAutoTest">
                 <methods>
                     <include name="testCoordDivisionAll"/>
                     <include name="testCoordStateAll"/>

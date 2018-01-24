@@ -1,9 +1,13 @@
 package by.fyodorov.coneproject.entity;
 
+import by.fyodorov.coneproject.observe.ConeListener;
+
 /**
  * class of Cone Entity. Storage top point, base center point, base radius
  */
 public class ConeEntity {
+    private ConeEventManager eventManager;
+
     private PointEntity top;
     private PointEntity center;
     private double radius;
@@ -18,6 +22,8 @@ public class ConeEntity {
         this.center = center;
         this.radius = radius;
         this.top = top;
+
+        eventManager = new ConeEventManager();
     }
 
     /**
@@ -42,6 +48,32 @@ public class ConeEntity {
      */
     public double getRadius() {
         return radius;
+    }
+
+
+
+    public void setTop(PointEntity top) {
+        this.top = top;
+        eventManager.sendAll();
+    }
+
+    public void setCenter(PointEntity center) {
+        this.center = center;
+        eventManager.sendAll();
+    }
+
+    public void setRadius(double radius) {
+        this.radius = radius;
+        eventManager.sendAll();
+    }
+
+
+    public void subscribe(ConeListener listener) {
+        eventManager.subscribe(listener);
+    }
+
+    public void unsubscribe(ConeListener listener) {
+        eventManager.unsubscribe(listener);
     }
 
     @Override

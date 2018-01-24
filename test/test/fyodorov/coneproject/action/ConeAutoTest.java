@@ -1,7 +1,7 @@
-package test.fyodorov.coneproject.processing;
+package test.fyodorov.coneproject.action;
 
 import by.fyodorov.coneproject.entity.ConeEntity;
-import by.fyodorov.coneproject.processing.ConeProcessing;
+import by.fyodorov.coneproject.action.ConeProcessing;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -52,35 +52,35 @@ public class ConeAutoTest {
 
 
     @Test(dataProvider = "CoordDivisionProvider")
-    public void testCoordDivisionAll(ConeEntity coneEntity, double expected) {
+    public void testCoordDivisionAll(ConeEntity coneEntity, double expected) throws Exception {
         ConeProcessing processing = new ConeProcessing();
         double actual = processing.coordinateDivision(coneEntity);
         Assert.assertEquals(actual, expected, DELTA, "All Coord Division Test Failed");
     }
 
     @Test(dataProvider = "CoordStateProvider")
-    public void testCoordStateAll(ConeEntity coneEntity, boolean expected) {
+    public void testCoordStateAll(ConeEntity coneEntity, boolean expected) throws Exception {
         ConeProcessing processing = new ConeProcessing();
         boolean actual = processing.coordinateState(coneEntity);
         Assert.assertTrue(actual == expected, "All Coord State Test Failed");
     }
 
     @Test(dataProvider = "IsConeProvider")
-    public void testIsConeAll(ConeEntity coneEntity, boolean expected) {
+    public void testIsConeAll(ConeEntity coneEntity, boolean expected) throws Exception {
         ConeProcessing processing = new ConeProcessing();
         boolean actual = processing.isCone(coneEntity);
         Assert.assertTrue(actual == expected, "All Is Cone Test Failed");
     }
 
     @Test(dataProvider = "SquareProvider")
-    public void testSquareAll(ConeEntity coneEntity, double expected) {
+    public void testSquareAll(ConeEntity coneEntity, double expected) throws Exception {
         ConeProcessing processing = new ConeProcessing();
         double actual = processing.getSquare(coneEntity);
         Assert.assertEquals(actual, expected, DELTA, "All Square Test Failed");
     }
 
     @Test(dataProvider = "VolumeProvider")
-    public void testVolumeAll(ConeEntity coneEntity, double expected) {
+    public void testVolumeAll(ConeEntity coneEntity, double expected) throws Exception {
         ConeProcessing processing = new ConeProcessing();
         double actual = processing.getVolume(coneEntity);
         Assert.assertEquals(actual, expected, DELTA, "All Volume Test Failed");

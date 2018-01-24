@@ -1,7 +1,7 @@
 package test.fyodorov.coneproject.help;
 
 import by.fyodorov.coneproject.entity.ConeEntity;
-import by.fyodorov.coneproject.processing.ConeCreator;
+import by.fyodorov.coneproject.action.ConeCreator;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
