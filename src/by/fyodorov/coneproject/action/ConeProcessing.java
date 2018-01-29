@@ -13,6 +13,12 @@ public class ConeProcessing {
     private static final Logger LOGGER = LogManager.getLogger(ConeProcessing.class);
 
 
+    /**
+     * getting perimeter of input cone
+     * @param cone cone for operation
+     * @return perimeter of input cone
+     * @throws ConeException if input cone == null
+     */
     public double getPerimeter(ConeEntity cone) throws ConeException {
         if (cone == null) {
             throw new ConeException("NullPoint");
@@ -20,10 +26,12 @@ public class ConeProcessing {
         LOGGER.info("getting perimeter \"" + cone + "\"");
         return (2 * Math.PI * cone.getRadius());
     }
+
     /**
      * getting volume of cone
      * @param cone cone for getting volume
      * @return volume of this cone
+     * @throws ConeException if input cone == null
      */
     public double getVolume(ConeEntity cone) throws ConeException {
         if (cone == null) {
@@ -37,6 +45,7 @@ public class ConeProcessing {
      * getting all surface area
      * @param cone cone for getting area
      * @return all area of cone
+     * @throws ConeException if input cone == null
      */
     public double getSquare(ConeEntity cone) throws ConeException {
         if (cone == null) {
@@ -55,6 +64,7 @@ public class ConeProcessing {
      * is the cone base is in the coordinates plane?
      * @param cone cone for checking
      * @return is the cone base is in the coordinates plane?
+     * @throws ConeException if input cone == null
      */
     public boolean coordinateState(ConeEntity cone) throws ConeException {
         if (cone == null) {
@@ -78,6 +88,7 @@ public class ConeProcessing {
      * division coefficient of volume by coordinate plane
      * @param cone cone for getting coefficient
      * @return division coefficient
+     * @throws ConeException if input cone == null
      */
     public double coordinateDivision(ConeEntity cone) throws ConeException {
         if (cone == null) {
@@ -117,6 +128,7 @@ public class ConeProcessing {
      * checking figure to Cone
      * @param cone cone for checking
      * @return is figure was cone?
+     * @throws ConeException if input cone == null
      */
     public boolean isCone(ConeEntity cone) throws ConeException {
         if (cone == null) {

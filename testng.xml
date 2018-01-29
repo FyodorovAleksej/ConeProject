@@ -20,7 +20,7 @@
             </class>
             <class name="test.fyodorov.coneproject.action.FileProcessingTest">
                 <methods>
-                    <include name="createAllTest"/>
+                    <include name="testCreateAll"/>
                     <include name="testCreateAllNegative"/>
                     <include name="testValidateAll"/>
                 </methods>
@@ -32,6 +32,12 @@
                     <include name="testIsConeAll"/>
                     <include name="testSquareAll"/>
                     <include name="testVolumeAll"/>
+                </methods>
+            </class>
+            <class name="test.fyodorov.coneproject.register.ConeRegisterTest">
+                <methods>
+                    <include name="testConeListenerPositive"/>
+                    <include name="testConeListenerNegative"/>
                 </methods>
             </class>
         </classes>

@@ -20,30 +20,18 @@ public class PointEntity {
         this.z = z;
     }
 
-
-    /**
-     * getting x coordinate
-     * @return x coordinate
-     */
     public double getX() {
         return x;
     }
 
-    /**
-     * getting y coordinate
-     * @return y coordinate
-     */
     public double getY() {
         return y;
     }
 
-    /**
-     * getting z coordinate
-     * @return z coordinate
-     */
     public double getZ() {
         return z;
     }
+
 
     @Override
     public String toString() {

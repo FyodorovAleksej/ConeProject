@@ -32,7 +32,7 @@ public class FileProcessingTest {
 
 
     @Test
-    public void createAllTest() throws Exception {
+    public void testCreateAll() throws Exception {
         ConeCreator fileProcessing = new ConeCreator();
         LinkedList<ConeEntity> linkedList = fileProcessing.createAll("./input/input.txt");
         Assert.assertNotEquals(linkedList.size(), 0);

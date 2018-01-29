@@ -11,30 +11,29 @@ import java.util.List;
 public class ConeEventManager {
     private static final Logger LOGGER = LogManager.getLogger(ConeEventManager.class);
 
-    private List<ConeRegister> listeners;
+    private List<ConeRegister> listenerList;
 
     public ConeEventManager() {
-        listeners = new ArrayList<ConeRegister>();
+        listenerList = new ArrayList<ConeRegister>();
     }
 
     public void subscribe(ConeRegister listener, ConeEntity entity) {
-        if (!listeners.contains(listener)) {
+        if (!listenerList.contains(listener)) {
             LOGGER.info("subscribe cone \"" + entity + "\"");
-            listeners.add(listener);
+            listenerList.add(listener);
             listener.add(entity);
         }
     }
 
     public void unsubscribe(ConeRegister listener, ConeEntity entity) {
-        if (listeners.contains(listener)) {
+        if (listenerList.contains(listener)) {
             LOGGER.info("unsubscribe cone \"" + entity + "\"");
-            listeners.remove(listener);
-            listener.remove(entity);
+            listenerList.remove(listener);
         }
     }
 
     public void sendAll(ConeEvent event) {
-        for (ConeRegister listener : listeners) {
+        for (ConeRegister listener : listenerList) {
             LOGGER.info("update \"" + event.getSource() + "\" signal");
             listener.update(event);
         }

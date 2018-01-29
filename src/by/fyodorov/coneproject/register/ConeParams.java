@@ -1,10 +1,19 @@
 package by.fyodorov.coneproject.register;
 
+/**
+ * class with parameters of ConeEntity
+ */
 public class ConeParams {
     private double perimeter;
     private double square;
     private double volume;
 
+    /**
+     * creating params of cone
+     * @param perimeter perimeter of Cone
+     * @param square full area of Cone
+     * @param volume volume of Cone
+     */
     public ConeParams(double perimeter, double square, double volume) {
         this.perimeter = perimeter;
         this.square = square;

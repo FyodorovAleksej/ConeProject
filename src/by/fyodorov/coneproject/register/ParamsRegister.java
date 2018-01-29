@@ -9,6 +9,9 @@ import org.apache.logging.log4j.Logger;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * class of register for all Cone's params. Singleton
+ */
 public class ParamsRegister implements ConeRegister {
     private static final Logger LOGGER = LogManager.getLogger(ParamsRegister.class);
 
@@ -29,6 +32,19 @@ public class ParamsRegister implements ConeRegister {
         return instance;
     }
 
+    /**
+     * getting params form register by id
+     * @param id id from register
+     * @return params of cone with input id from register
+     */
+    public ConeParams getParams(long id) {
+        return map.get(id);
+    }
+
+    /**
+     * adding cone's params in register
+     * @param cone cone for getting params
+     */
     public void add(ConeEntity cone) {
         if (!map.containsKey(cone.getConeId())) {
             LOGGER.info("adding cone in register \"" + cone + "\"");
@@ -42,6 +58,10 @@ public class ParamsRegister implements ConeRegister {
         }
     }
 
+    /**
+     * removing cone's params from register
+     * @param cone cone for removing
+     */
     public void remove(ConeEntity cone) {
         if (map.containsKey(cone.getConeId())) {
             LOGGER.info("remove cone from register \"" + cone + "\"");
@@ -49,6 +69,10 @@ public class ParamsRegister implements ConeRegister {
         }
     }
 
+    /**
+     * updating params of cone in register
+     * @param event event of cone
+     */
     public void update(ConeEvent event) {
         ConeEntity cone = event.getSource();
         if (map.containsKey(cone.getConeId())) {

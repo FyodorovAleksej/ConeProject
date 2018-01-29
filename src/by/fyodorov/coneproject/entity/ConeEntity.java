@@ -31,26 +31,15 @@ public class ConeEntity {
         coneId = ConeCreatorId.getId();
     }
 
-    /**
-     * getting top point
-     * @return top point
-     */
+
     public PointEntity getTop() {
         return top;
     }
 
-    /**
-     * getting base center point
-     * @return center point of base
-     */
     public PointEntity getCenter() {
         return center;
     }
 
-    /**
-     * getting radius of base
-     * @return radius of base
-     */
     public double getRadius() {
         return radius;
     }
@@ -58,6 +47,8 @@ public class ConeEntity {
     public long getConeId() {
         return coneId;
     }
+
+
 
     public void setTop(PointEntity top) {
         this.top = top;
@@ -75,10 +66,18 @@ public class ConeEntity {
     }
 
 
+    /**
+     * subscribe listener
+     * @param listener listener for subscribe
+     */
     public void subscribe(ConeRegister listener) {
         eventManager.subscribe(listener, this);
     }
 
+    /**
+     * unsubscribe listener
+     * @param listener listener for unsubscribe
+     */
     public void unsubscribe(ConeRegister listener) {
         eventManager.unsubscribe(listener, this);
     }
