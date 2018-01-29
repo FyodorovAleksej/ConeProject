@@ -28,7 +28,7 @@ public class ConeReader {
             LOGGER.info("file \"" + path + "\" was opened");
             return stream.toArray(String[]::new);
         } catch (IOException e) {
-            throw new ConeException("file \"" + path + "\" can't read");
+            throw new ConeException("can't read file", e);
         }
         finally {
             if (stream != null) {
