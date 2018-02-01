@@ -29,7 +29,7 @@ public class ConeCreator {
             }
             return coneList;
         } catch (ConeException e) {
-            LOGGER.fatal("Can't read file", e);
+            LOGGER.catching(e);
             return new LinkedList<ConeEntity>();
         }
     }
