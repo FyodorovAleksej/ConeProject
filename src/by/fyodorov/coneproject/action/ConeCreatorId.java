@@ -10,7 +10,7 @@ public class ConeCreatorId {
      * generate unique id for ConeEntity
      * @return unique id
      */
-    public static long getId() {
+    public static long generateId() {
         return last++;
     }
 }

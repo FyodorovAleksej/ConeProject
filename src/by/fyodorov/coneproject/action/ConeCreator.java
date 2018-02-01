@@ -19,7 +19,7 @@ public class ConeCreator {
     public LinkedList<ConeEntity> createAll(String path) {
         ConeReader reader = new ConeReader();
         try {
-            String[] strings = reader.readAllCone(path);
+            String[] strings = reader.readAllCones(path);
             LinkedList<ConeEntity> coneList = new LinkedList<ConeEntity>();
             for (String string : strings) {
                 ConeEntity cone = create(string);

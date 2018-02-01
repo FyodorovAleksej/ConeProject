@@ -14,12 +14,12 @@ public class ConeProcessing {
 
 
     /**
-     * getting perimeter of input cone
+     * calculating perimeter of input cone
      * @param cone cone for operation
      * @return perimeter of input cone
      * @throws ConeException if input cone == null
      */
-    public double getPerimeter(ConeEntity cone) throws ConeException {
+    public double calculatePerimeter(ConeEntity cone) throws ConeException {
         if (cone == null) {
             throw new ConeException("NullPoint");
         }
@@ -28,32 +28,32 @@ public class ConeProcessing {
     }
 
     /**
-     * getting volume of cone
+     * calculating volume of cone
      * @param cone cone for getting volume
      * @return volume of this cone
      * @throws ConeException if input cone == null
      */
-    public double getVolume(ConeEntity cone) throws ConeException {
+    public double calculateVolume(ConeEntity cone) throws ConeException {
         if (cone == null) {
             throw new ConeException("NullPoint");
         }
         LOGGER.info("getting volume \"" + cone + "\"");
-        return (getVectorLength(cone.getCenter(), cone.getTop()) * Math.PI * Math.pow(cone.getRadius(), 2) / 3);
+        return (vectorLength(cone.getCenter(), cone.getTop()) * Math.PI * Math.pow(cone.getRadius(), 2) / 3);
     }
 
     /**
-     * getting all surface area
+     * calculating all surface area
      * @param cone cone for getting area
      * @return all area of cone
      * @throws ConeException if input cone == null
      */
-    public double getSquare(ConeEntity cone) throws ConeException {
+    public double calculateSquare(ConeEntity cone) throws ConeException {
         if (cone == null) {
             throw new ConeException("NullPoint");
         }
         LOGGER.info("getting square \"" + cone + "\"");
         if (isCone(cone)) {
-            return ((Math.hypot(getVectorLength(cone.getCenter(), cone.getTop()), cone.getRadius()) + cone.getRadius()) * Math.PI * cone.getRadius());
+            return ((Math.hypot(vectorLength(cone.getCenter(), cone.getTop()), cone.getRadius()) + cone.getRadius()) * Math.PI * cone.getRadius());
         }
         else {
             return 0;
@@ -90,7 +90,7 @@ public class ConeProcessing {
      * @return division coefficient
      * @throws ConeException if input cone == null
      */
-    public double coordinateDivision(ConeEntity cone) throws ConeException {
+    public double calculateCoordinateDivision(ConeEntity cone) throws ConeException {
         if (cone == null) {
             throw new ConeException("NullPoint");
         }
@@ -106,18 +106,18 @@ public class ConeProcessing {
 
             if (x1 == x2 && y1 == y2 && z1 != z2) {
                 if (z1 >= 0 ^ z2 >= 0) {
-                    return Math.pow(getVectorLength(cone.getCenter(), cone.getTop()) /
-                            getVectorLength(cone.getTop(), new PointEntity(x1, y1, 0)), 3);
+                    return Math.pow(vectorLength(cone.getCenter(), cone.getTop()) /
+                            vectorLength(cone.getTop(), new PointEntity(x1, y1, 0)), 3);
                 }
             } else if (x1 == x2 && y1 != y2 && z1 == z2) {
                 if (y1 >= 0 ^ y2 >= 0) {
-                    return Math.pow(getVectorLength(cone.getCenter(), cone.getTop()) /
-                            getVectorLength(cone.getTop(), new PointEntity(x1, 0, z1)), 3);
+                    return Math.pow(vectorLength(cone.getCenter(), cone.getTop()) /
+                            vectorLength(cone.getTop(), new PointEntity(x1, 0, z1)), 3);
                 }
             } else if (x1 != x2 && y1 == y2 && z1 == z2) {
                 if (x1 >= 0 ^ x2 >= 0) {
-                    return Math.pow(getVectorLength(cone.getCenter(), cone.getTop()) /
-                            getVectorLength(cone.getTop(), new PointEntity(0, y1, z1)), 3);
+                    return Math.pow(vectorLength(cone.getCenter(), cone.getTop()) /
+                            vectorLength(cone.getTop(), new PointEntity(0, y1, z1)), 3);
                 }
             }
         }
@@ -139,12 +139,12 @@ public class ConeProcessing {
     }
 
     /**
-     * getting vector length between 2 points
+     * calculating vector length between 2 points
      * @param point1 first point
      * @param point2 second point
      * @return length of vector
      */
-    private double getVectorLength(PointEntity point1, PointEntity point2) {
+    private double vectorLength(PointEntity point1, PointEntity point2) {
         double deltaX = point1.getX() - point2.getX();
         double deltaY = point1.getY() - point2.getY();
         double deltaZ = point1.getZ() - point2.getZ();

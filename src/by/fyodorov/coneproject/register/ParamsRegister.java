@@ -7,6 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
 
 /**
@@ -37,7 +38,7 @@ public class ParamsRegister implements ConeRegister {
      * @param id id from register
      * @return params of cone with input id from register
      */
-    public ConeParams getParams(long id) {
+    public ConeParams findParams(long id) {
         return map.get(id);
     }
 
@@ -50,7 +51,7 @@ public class ParamsRegister implements ConeRegister {
             LOGGER.info("adding cone in register \"" + cone + "\"");
             ConeProcessing processing = new ConeProcessing();
             try {
-                map.put(cone.getConeId(), new ConeParams(processing.getPerimeter(cone), processing.getSquare(cone), processing.getVolume(cone)));
+                map.put(cone.getConeId(), new ConeParams(processing.calculatePerimeter(cone), processing.calculateSquare(cone), processing.calculateVolume(cone)));
             }
             catch (ConeException e) {
                 LOGGER.error("NullPoint", e);
@@ -80,13 +81,21 @@ public class ParamsRegister implements ConeRegister {
             ConeParams params = map.get(cone.getConeId());
             ConeProcessing processing = new ConeProcessing();
             try {
-                params.setPerimeter(processing.getPerimeter(cone));
-                params.setSquare(processing.getSquare(cone));
-                params.setVolume(processing.getVolume(cone));
+                params.setPerimeter(processing.calculatePerimeter(cone));
+                params.setSquare(processing.calculateSquare(cone));
+                params.setVolume(processing.calculateVolume(cone));
             }
             catch (ConeException e) {
                 LOGGER.error("NullPoint", e);
             }
         }
+    }
+
+    public LinkedList<ConeParams> findAll() {
+        LinkedList<ConeParams> list = new LinkedList<ConeParams>();
+        for (HashMap.Entry<Long, ConeParams> entry : map.entrySet()) {
+            list.add(entry.getValue());
+        }
+        return list;
     }
 }

@@ -2,6 +2,8 @@ package by.fyodorov.coneproject.register;
 
 import by.fyodorov.coneproject.entity.ConeEntity;
 
+import java.util.LinkedList;
+
 /**
  * interface of Listener (Register)
  */
@@ -12,7 +14,7 @@ public interface ConeRegister {
      * @param id id in register
      * @return params of this cone
      */
-    ConeParams getParams(long id);
+    ConeParams findParams(long id);
 
     /**
      * adding new cone in register
@@ -31,4 +33,6 @@ public interface ConeRegister {
      * @param event event of Cone
      */
     void update(ConeEvent event);
+
+    LinkedList<ConeParams> findAll();
 }

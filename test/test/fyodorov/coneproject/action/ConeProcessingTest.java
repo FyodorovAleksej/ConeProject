@@ -24,7 +24,7 @@ public class ConeProcessingTest {
         ConeEntity coneEntity = new ConeEntity(new PointEntity(1,0,0), 3, new PointEntity(5,0,0));
         ConeProcessing processing = new ConeProcessing();
         double expected = 75.39816;
-        double actual = processing.getSquare(coneEntity);
+        double actual = processing.calculateSquare(coneEntity);
         Assert.assertEquals(actual, expected, DELTA, "Base Square Test Failed");
     }
 
@@ -32,7 +32,7 @@ public class ConeProcessingTest {
     public void testGetSquareIsoPositive() throws Exception {
         ConeEntity coneEntity = new ConeEntity(new PointEntity(4, 4, 1), 3, new PointEntity(4, 4, 5));
         ConeProcessing processing = new ConeProcessing();
-        double actual = processing.getSquare(coneEntity);
+        double actual = processing.calculateSquare(coneEntity);
         double expected = 75.39816;
         Assert.assertEquals(actual, expected, DELTA, "Iso Square Test Failed");
     }
@@ -41,7 +41,7 @@ public class ConeProcessingTest {
     public void testGetSquareNegative() throws Exception {
         ConeEntity coneEntity = new ConeEntity(new PointEntity(4,4,1), 20, new PointEntity(4,4,1));
         ConeProcessing processing = new ConeProcessing();
-        double actual = processing.getSquare(coneEntity);
+        double actual = processing.calculateSquare(coneEntity);
         double expected = 0;
         Assert.assertEquals(actual, expected, "Square Negative Test Failed");
     }
@@ -53,7 +53,7 @@ public class ConeProcessingTest {
     public void testGetVolumePositive() throws Exception {
         ConeEntity coneEntity = new ConeEntity(new PointEntity(2,4,1), 4, new PointEntity(4,4,1));
         ConeProcessing processing = new ConeProcessing();
-        double actual = processing.getVolume(coneEntity);
+        double actual = processing.calculateVolume(coneEntity);
         double expected = 33.5103;
         Assert.assertEquals(actual, expected, DELTA, "Volume Positive Test Failed");
     }
@@ -62,7 +62,7 @@ public class ConeProcessingTest {
     public void testGetVolumeIsoPositive() throws Exception {
         ConeEntity coneEntity = new ConeEntity(new PointEntity(2, 6, 1), 3, new PointEntity(4, 4, 3));
         ConeProcessing processing = new ConeProcessing();
-        double actual = processing.getVolume(coneEntity);
+        double actual = processing.calculateVolume(coneEntity);
         double expected = 32.6483;
         Assert.assertEquals(actual, expected, DELTA, "Volume Iso Positive Test Failed");
     }
@@ -71,7 +71,7 @@ public class ConeProcessingTest {
     public void testGetVolumeNegative() throws Exception {
         ConeEntity coneEntity = new ConeEntity(new PointEntity(4,4,1), 20, new PointEntity(4,4,1));
         ConeProcessing processing = new ConeProcessing();
-        double actual = processing.getVolume(coneEntity);
+        double actual = processing.calculateVolume(coneEntity);
         double expected = 0;
         Assert.assertEquals(actual, expected, "Volume Negative Test Failed");
     }
@@ -80,7 +80,7 @@ public class ConeProcessingTest {
     public void testCoordinateDivisionPositive() throws Exception {
         ConeEntity coneEntity = new ConeEntity(new PointEntity(0,0,-2), 3, new PointEntity(0,0,2));
         ConeProcessing processing = new ConeProcessing();
-        double actual = processing.coordinateDivision(coneEntity);
+        double actual = processing.calculateCoordinateDivision(coneEntity);
         double expected = 8;
         Assert.assertEquals(actual, expected, "Coordinate Division Test Failed");
     }
@@ -89,7 +89,7 @@ public class ConeProcessingTest {
     public void testCoordinateDivisionNegative() throws Exception {
         ConeEntity coneEntity = new ConeEntity(new PointEntity(0,0,-2), 3, new PointEntity(0,2,2));
         ConeProcessing processing = new ConeProcessing();
-        double actual = processing.coordinateDivision(coneEntity);
+        double actual = processing.calculateCoordinateDivision(coneEntity);
         double expected = 0;
         Assert.assertEquals(actual, expected, "Coordinate Division Test Failed");
     }
@@ -98,7 +98,7 @@ public class ConeProcessingTest {
     public void testCoordinateDivisionCordNegative() throws Exception {
         ConeEntity coneEntity = new ConeEntity(new PointEntity(6,6,0), 5, new PointEntity(6,6,20));
         ConeProcessing processing = new ConeProcessing();
-        double actual = processing.coordinateDivision(coneEntity);
+        double actual = processing.calculateCoordinateDivision(coneEntity);
         double expected = 0;
         Assert.assertEquals(actual, expected, "Coordinate Division Test Failed");
     }

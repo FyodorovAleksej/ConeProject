@@ -54,7 +54,7 @@ public class ConeAutoTest {
     @Test(dataProvider = "CoordDivisionProvider")
     public void testCoordDivisionAll(ConeEntity coneEntity, double expected) throws Exception {
         ConeProcessing processing = new ConeProcessing();
-        double actual = processing.coordinateDivision(coneEntity);
+        double actual = processing.calculateCoordinateDivision(coneEntity);
         Assert.assertEquals(actual, expected, DELTA, "All Coord Division Test Failed");
     }
 
@@ -75,14 +75,14 @@ public class ConeAutoTest {
     @Test(dataProvider = "SquareProvider")
     public void testSquareAll(ConeEntity coneEntity, double expected) throws Exception {
         ConeProcessing processing = new ConeProcessing();
-        double actual = processing.getSquare(coneEntity);
+        double actual = processing.calculateSquare(coneEntity);
         Assert.assertEquals(actual, expected, DELTA, "All Square Test Failed");
     }
 
     @Test(dataProvider = "VolumeProvider")
     public void testVolumeAll(ConeEntity coneEntity, double expected) throws Exception {
         ConeProcessing processing = new ConeProcessing();
-        double actual = processing.getVolume(coneEntity);
+        double actual = processing.calculateVolume(coneEntity);
         Assert.assertEquals(actual, expected, DELTA, "All Volume Test Failed");
     }
 

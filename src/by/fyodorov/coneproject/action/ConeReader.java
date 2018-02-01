@@ -21,7 +21,7 @@ public class ConeReader {
      * @return array of strings from file
      * @throws ConeException if file wasn't readied
      */
-    public String[] readAllCone(String path) throws ConeException {
+    public String[] readAllCones(String path) throws ConeException {
         Stream<String> stream = null;
         try {
             stream = Files.lines(Paths.get(path));

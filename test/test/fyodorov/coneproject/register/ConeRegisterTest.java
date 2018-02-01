@@ -1,16 +1,27 @@
 package test.fyodorov.coneproject.register;
 
+import by.fyodorov.coneproject.action.ConeCreator;
 import by.fyodorov.coneproject.action.ConeProcessing;
+import by.fyodorov.coneproject.compare.ConeComparator;
 import by.fyodorov.coneproject.entity.ConeEntity;
 import by.fyodorov.coneproject.entity.PointEntity;
 import by.fyodorov.coneproject.exception.ConeException;
 import by.fyodorov.coneproject.register.ConeParams;
 import by.fyodorov.coneproject.register.ConeRegister;
 import by.fyodorov.coneproject.register.ParamsRegister;
+import by.fyodorov.coneproject.repository.ConeEntityStorageImpl;
+import by.fyodorov.coneproject.repository.ConeStorable;
+import by.fyodorov.coneproject.specification.ConeBoundsSettings;
+import by.fyodorov.coneproject.specification.conePerimeter.ConePerimeterBetweenSpecification;
+import by.fyodorov.coneproject.specification.coneRadius.ConeRadiusBetweenSpecifiction;
+import by.fyodorov.coneproject.specification.coneVolume.ConeVolumeBetweenSpecification;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import java.util.Comparator;
+import java.util.LinkedList;
 
 public class ConeRegisterTest {
     private final static double DELTA = 0.001;
@@ -30,7 +41,7 @@ public class ConeRegisterTest {
         ConeEntity coneEntity = new ConeEntity(new PointEntity(1,0,0), 3, new PointEntity(5,0,0));
         coneEntity.subscribe(register);
         coneEntity.setRadius(23);
-        ConeParams params = register.getParams(coneEntity.getConeId());
+        ConeParams params = register.findParams(coneEntity.getConeId());
         double expected = 2215.87;
         Assert.assertEquals(params.getVolume(), expected, DELTA, "Listener Test Failed");
     }
@@ -42,8 +53,29 @@ public class ConeRegisterTest {
         coneEntity.setRadius(23);
         coneEntity.unsubscribe(register);
         coneEntity.setRadius(56);
-        ConeParams params = register.getParams(coneEntity.getConeId());
+        ConeParams params = register.findParams(coneEntity.getConeId());
         double expected = 2215.87;
         Assert.assertEquals(params.getVolume(), expected, DELTA, "Listener Test Failed");
+    }
+
+
+    @Test
+    public void testConeRepositoryRadiusFilter() throws Exception {
+        ConeStorable storage = ConeEntityStorageImpl.getInstance();
+        ConeCreator creator = new ConeCreator();
+        LinkedList<ConeEntity> list = creator.createAll("input/input.txt");
+        storage.addAll(list);
+        LinkedList<ConeEntity> filtred = storage.findBySpecification(new ConeRadiusBetweenSpecifiction(1,15, ConeBoundsSettings.NONE));
+        Assert.assertEquals(filtred.size(), 1);
+    }
+
+    @Test
+    public void testConeRepositoryVolumeFilter() throws Exception {
+        ConeStorable storage = ConeEntityStorageImpl.getInstance();
+        ConeCreator creator = new ConeCreator();
+        LinkedList<ConeEntity> list = creator.createAll("input/input.txt");
+        storage.addAll(list);
+        LinkedList<ConeEntity> filtred = storage.findBySpecification(new ConeVolumeBetweenSpecification(0,20, ConeBoundsSettings.NONE));
+        Assert.assertEquals(filtred.size(), 2);
     }
 }

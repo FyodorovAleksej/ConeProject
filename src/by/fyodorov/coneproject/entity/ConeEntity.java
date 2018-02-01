@@ -28,7 +28,7 @@ public class ConeEntity {
         this.top = top;
 
         eventManager = new ConeEventManager();
-        coneId = ConeCreatorId.getId();
+        coneId = ConeCreatorId.generateId();
     }
 
 
