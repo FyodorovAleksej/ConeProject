@@ -7,6 +7,9 @@ import by.fyodorov.coneproject.specification.ConeSpecification;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+/**
+ * class of specification by concrete perimeter (x == value)
+ */
 public class ConePerimeterConcreteSpecification implements ConeSpecification {
     private static final Logger LOGGER = LogManager.getLogger(ConePerimeterConcreteSpecification.class);
     private double concretePerimeter;

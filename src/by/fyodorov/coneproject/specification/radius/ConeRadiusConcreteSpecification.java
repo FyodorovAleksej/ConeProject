@@ -7,6 +7,9 @@ import by.fyodorov.coneproject.specification.ConeSpecification;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+/**
+ * class of specification by concrete radius (x == value)
+ */
 public class ConeRadiusConcreteSpecification implements ConeSpecification {
     private static final Logger LOGGER = LogManager.getLogger(ConeRadiusConcreteSpecification.class);
     private double concreteRadius;

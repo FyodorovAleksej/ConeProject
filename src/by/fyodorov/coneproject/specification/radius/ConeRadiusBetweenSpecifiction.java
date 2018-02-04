@@ -6,7 +6,9 @@ import by.fyodorov.coneproject.specification.ConeSpecification;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-
+/**
+ * class of specification by radius between bounds (min <= x <= max)
+ */
 public class ConeRadiusBetweenSpecifiction implements ConeSpecification {
     private static final Logger LOGGER = LogManager.getLogger(ConeRadiusBetweenSpecifiction.class);
     private double min;
@@ -20,6 +22,10 @@ public class ConeRadiusBetweenSpecifiction implements ConeSpecification {
         this.settings = settings;
     }
 
+    /**
+     * @param entity ConeEntity object for filtering
+     * @return is ConeEntity radius in bounds (min <= x <= max)
+     */
     @Override
     public boolean specified(ConeEntity entity) {
         return ((settings.isMinInfinity() || entity.getRadius() >= min) && (settings.isMaxInfinity() || entity.getRadius() <= max));

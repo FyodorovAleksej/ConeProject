@@ -8,6 +8,9 @@ import by.fyodorov.coneproject.specification.ConeSpecification;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+/**
+ * class of specification by square between bounds (min <= x <= max)
+ */
 public class ConeSquareBetweenSpecification implements ConeSpecification {
     private static final Logger LOGGER = LogManager.getLogger(ConeSquareBetweenSpecification.class);
     private double min;
@@ -21,6 +24,10 @@ public class ConeSquareBetweenSpecification implements ConeSpecification {
         this.settings = settings;
     }
 
+    /**
+     * @param entity ConeEntity object for filtering
+     * @return is ConeEntity square in bounds (min <= x <= max)
+     */
     @Override
     public boolean specified(ConeEntity entity) {
         ConeProcessing processing = new ConeProcessing();

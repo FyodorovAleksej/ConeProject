@@ -92,6 +92,10 @@ public class ParameterTupleRegister implements ConeRegister {
         }
     }
 
+    /**
+     * getting all Parameters from register
+     * @return List of all Parameters
+     */
     public LinkedList<ConeParameterTuple> findAll() {
         LinkedList<ConeParameterTuple> list = new LinkedList<ConeParameterTuple>();
         for (HashMap.Entry<Long, ConeParameterTuple> entry : map.entrySet()) {

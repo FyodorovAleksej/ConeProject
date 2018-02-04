@@ -8,9 +8,16 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.Comparator;
 
+/**
+ * comparator for sorting ConesEntity
+ */
 public class ConeComparator {
     private static final Logger LOGGER = LogManager.getLogger(ConeComparator.class);
 
+    /**
+     * getting comparator by radius of ConeEntity
+     * @return result of comparing radius of ConeEntities
+     */
     public Comparator<ConeEntity> comparatorByRadius() {
         return new Comparator<ConeEntity>() {
             @Override
@@ -20,6 +27,10 @@ public class ConeComparator {
         };
     }
 
+    /**
+     * getting comparator by square of ConeEntities
+     * @return result of comparing square of ConeEntities
+     */
     public Comparator<ConeEntity> comparatorBySquare() {
         return new Comparator<ConeEntity>() {
             @Override
@@ -35,6 +46,10 @@ public class ConeComparator {
         };
     }
 
+    /**
+     * getting comparator by volume of ConeEntity
+     * @return result of comparing volume of ConeEntities
+     */
     public Comparator<ConeEntity> comparatorByVolume() {
         return new Comparator<ConeEntity>() {
             @Override
@@ -50,6 +65,10 @@ public class ConeComparator {
         };
     }
 
+    /**
+     * getting comparator by perimeter of ConeEntity
+     * @return result of comparing perimeter of ConeEntities
+     */
     public Comparator<ConeEntity> comparatorByPerimeter() {
         return new Comparator<ConeEntity>() {
             @Override

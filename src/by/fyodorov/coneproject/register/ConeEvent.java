@@ -3,6 +3,9 @@ package by.fyodorov.coneproject.register;
 import by.fyodorov.coneproject.entity.ConeEntity;
 import java.util.EventObject;
 
+/**
+ * class of event for sending to Observer
+ */
 public class ConeEvent extends EventObject {
 
     /**
@@ -13,6 +16,10 @@ public class ConeEvent extends EventObject {
         super(source);
     }
 
+    /**
+     * getting source of event
+     * @return source of event (ConeEntity)
+     */
     @Override
     public ConeEntity getSource() {
         return (ConeEntity) super.getSource();

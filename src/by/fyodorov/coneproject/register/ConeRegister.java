@@ -34,5 +34,9 @@ public interface ConeRegister {
      */
     void update(ConeEntity cone);
 
+    /**
+     * getting all Parameters from register
+     * @return List of all Parameters from register
+     */
     LinkedList<ConeParameterTuple> findAll();
 }

@@ -8,6 +8,9 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.LinkedList;
 
+/**
+ * class for creating cones from file
+ */
 public class ConeCreator {
     private static final Logger LOGGER = LogManager.getLogger(ConeCreator.class);
 
