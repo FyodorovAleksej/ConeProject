@@ -1,12 +1,12 @@
 package by.fyodorov.coneproject.specification;
 
-public enum ConeBoundsSettings {
+public enum ConeBoundsSetting {
     NONE((byte) 0),
     MAX_INFINITY((byte) 1),
     MIN_INFINITY((byte) 2),
     BOTH_INFINITY((byte) (MAX_INFINITY.getFlag() | MIN_INFINITY.getFlag()));
     private final byte flag;
-    ConeBoundsSettings(byte flag) {
+    ConeBoundsSetting(byte flag) {
         this.flag = flag;
     }
 

@@ -1,4 +1,4 @@
-package by.fyodorov.coneproject.specification.conePerimeter;
+package by.fyodorov.coneproject.specification.perimeter;
 
 import by.fyodorov.coneproject.action.ConeProcessing;
 import by.fyodorov.coneproject.entity.ConeEntity;

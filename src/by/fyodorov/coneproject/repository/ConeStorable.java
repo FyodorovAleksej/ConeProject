@@ -11,6 +11,7 @@ public interface ConeStorable {
     boolean add(ConeEntity entity);
     boolean addAll(LinkedList<ConeEntity> list);
     boolean remove(ConeEntity entity);
+    void clear();
     LinkedList<ConeEntity> findByPredicate(Predicate<ConeEntity> predicate);
     LinkedList<ConeEntity> findBySpecification(ConeSpecification specification);
     void sort(Comparator<ConeEntity> comparator);

@@ -1,4 +1,4 @@
-package by.fyodorov.coneproject.specification.coneSquare;
+package by.fyodorov.coneproject.specification.square;
 
 import by.fyodorov.coneproject.action.ConeProcessing;
 import by.fyodorov.coneproject.entity.ConeEntity;

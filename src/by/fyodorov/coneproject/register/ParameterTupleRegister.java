@@ -13,20 +13,20 @@ import java.util.Map;
 /**
  * class of register for all Cone's params. Singleton
  */
-public class ParamsRegister implements ConeRegister {
-    private static final Logger LOGGER = LogManager.getLogger(ParamsRegister.class);
+public class ParameterTupleRegister implements ConeRegister {
+    private static final Logger LOGGER = LogManager.getLogger(ParameterTupleRegister.class);
 
-    private Map<Long, ConeParams> map = new HashMap<Long, ConeParams>();
-    private static volatile ParamsRegister instance;
+    private Map<Long, ConeParameterTuple> map = new HashMap<Long, ConeParameterTuple>();
+    private static volatile ParameterTupleRegister instance;
 
-    private  ParamsRegister() {
+    private ParameterTupleRegister() {
     }
 
-    public static ParamsRegister getInstance() {
+    public static ParameterTupleRegister getInstance() {
         if (instance == null) {
-            synchronized (ParamsRegister.class) {
+            synchronized (ParameterTupleRegister.class) {
                 if (instance == null) {
-                    instance = new ParamsRegister();
+                    instance = new ParameterTupleRegister();
                 }
             }
         }
@@ -38,7 +38,7 @@ public class ParamsRegister implements ConeRegister {
      * @param id id from register
      * @return params of cone with input id from register
      */
-    public ConeParams findParams(long id) {
+    public ConeParameterTuple findParams(long id) {
         return map.get(id);
     }
 
@@ -51,7 +51,7 @@ public class ParamsRegister implements ConeRegister {
             LOGGER.info("adding cone in register \"" + cone + "\"");
             ConeProcessing processing = new ConeProcessing();
             try {
-                map.put(cone.getConeId(), new ConeParams(processing.calculatePerimeter(cone), processing.calculateSquare(cone), processing.calculateVolume(cone)));
+                map.put(cone.getConeId(), new ConeParameterTuple(processing.calculatePerimeter(cone), processing.calculateSquare(cone), processing.calculateVolume(cone)));
             }
             catch (ConeException e) {
                 LOGGER.error("NullPoint", e);
@@ -70,15 +70,16 @@ public class ParamsRegister implements ConeRegister {
         }
     }
 
+
     /**
      * updating params of cone in register
-     * @param event event of cone
+     * @param cone cone for updating
      */
-    public void update(ConeEvent event) {
-        ConeEntity cone = event.getSource();
+    @Override
+    public void update(ConeEntity cone) {
         if (map.containsKey(cone.getConeId())) {
             LOGGER.info("update slot");
-            ConeParams params = map.get(cone.getConeId());
+            ConeParameterTuple params = map.get(cone.getConeId());
             ConeProcessing processing = new ConeProcessing();
             try {
                 params.setPerimeter(processing.calculatePerimeter(cone));
@@ -91,9 +92,9 @@ public class ParamsRegister implements ConeRegister {
         }
     }
 
-    public LinkedList<ConeParams> findAll() {
-        LinkedList<ConeParams> list = new LinkedList<ConeParams>();
-        for (HashMap.Entry<Long, ConeParams> entry : map.entrySet()) {
+    public LinkedList<ConeParameterTuple> findAll() {
+        LinkedList<ConeParameterTuple> list = new LinkedList<ConeParameterTuple>();
+        for (HashMap.Entry<Long, ConeParameterTuple> entry : map.entrySet()) {
             list.add(entry.getValue());
         }
         return list;

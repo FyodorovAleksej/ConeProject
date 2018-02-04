@@ -14,7 +14,7 @@ public interface ConeRegister {
      * @param id id in register
      * @return params of this cone
      */
-    ConeParams findParams(long id);
+    ConeParameterTuple findParams(long id);
 
     /**
      * adding new cone in register
@@ -30,9 +30,9 @@ public interface ConeRegister {
 
     /**
      * updating info in register
-     * @param event event of Cone
+     * @param cone cone for updating
      */
-    void update(ConeEvent event);
+    void update(ConeEntity cone);
 
-    LinkedList<ConeParams> findAll();
+    LinkedList<ConeParameterTuple> findAll();
 }

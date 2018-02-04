@@ -1,21 +1,21 @@
-package by.fyodorov.coneproject.specification.coneVolume;
+package by.fyodorov.coneproject.specification.square;
 
 import by.fyodorov.coneproject.action.ConeProcessing;
 import by.fyodorov.coneproject.entity.ConeEntity;
 import by.fyodorov.coneproject.exception.ConeException;
-import by.fyodorov.coneproject.specification.ConeBoundsSettings;
+import by.fyodorov.coneproject.specification.ConeBoundsSetting;
 import by.fyodorov.coneproject.specification.ConeSpecification;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class ConeVolumeBetweenSpecification implements ConeSpecification {
-    private static final Logger LOGGER = LogManager.getLogger(ConeVolumeBetweenSpecification.class);
+public class ConeSquareBetweenSpecification implements ConeSpecification {
+    private static final Logger LOGGER = LogManager.getLogger(ConeSquareBetweenSpecification.class);
     private double min;
     private double max;
-    private ConeBoundsSettings settings;
+    private ConeBoundsSetting settings;
 
 
-    public ConeVolumeBetweenSpecification(double min, double max, ConeBoundsSettings settings) {
+    public ConeSquareBetweenSpecification(double min, double max, ConeBoundsSetting settings) {
         this.min = min;
         this.max = max;
         this.settings = settings;
@@ -25,7 +25,7 @@ public class ConeVolumeBetweenSpecification implements ConeSpecification {
     public boolean specified(ConeEntity entity) {
         ConeProcessing processing = new ConeProcessing();
         try {
-            return ((settings.isMinInfinity() || processing.calculateVolume(entity) >= min) && (settings.isMaxInfinity() || processing.calculateVolume(entity) <= max));
+            return ((settings.isMinInfinity() || processing.calculateSquare(entity) >= min) && (settings.isMaxInfinity() || processing.calculateSquare(entity) <= max));
         } catch (ConeException e) {
             LOGGER.catching(e);
         }

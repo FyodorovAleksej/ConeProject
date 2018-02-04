@@ -55,6 +55,11 @@ public class ConeEntityStorageImpl implements ConeStorable {
     }
 
     @Override
+    public void clear() {
+        coneEntities.clear();
+    }
+
+    @Override
     public LinkedList<ConeEntity> findByPredicate(Predicate<ConeEntity> predicate) {
         LinkedList<ConeEntity> resultList = new LinkedList<ConeEntity>();
         for (ConeEntity entity : coneEntities) {

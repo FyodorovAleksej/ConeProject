@@ -2,7 +2,7 @@ package by.fyodorov.coneproject.entity;
 
 import by.fyodorov.coneproject.action.ConeCreatorId;
 import by.fyodorov.coneproject.register.ConeEvent;
-import by.fyodorov.coneproject.register.ConeRegister;
+import by.fyodorov.coneproject.register.ConeListener;
 
 /**
  * class of Cone Entity. Storage top point, base center point, base radius
@@ -70,7 +70,7 @@ public class ConeEntity {
      * subscribe listener
      * @param listener listener for subscribe
      */
-    public void subscribe(ConeRegister listener) {
+    public void subscribe(ConeListener listener) {
         eventManager.subscribe(listener, this);
     }
 
@@ -78,7 +78,7 @@ public class ConeEntity {
      * unsubscribe listener
      * @param listener listener for unsubscribe
      */
-    public void unsubscribe(ConeRegister listener) {
+    public void unsubscribe(ConeListener listener) {
         eventManager.unsubscribe(listener, this);
     }
 
