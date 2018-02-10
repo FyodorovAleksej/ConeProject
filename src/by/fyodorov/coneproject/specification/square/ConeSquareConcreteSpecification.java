@@ -18,6 +18,10 @@ public class ConeSquareConcreteSpecification implements ConeSpecification {
         this.concreteSquare = concreteSquare;
     }
 
+    /**
+     * @param entity ConeEntity object for filtering
+     * @return is ConeEntity object square equals this value (x == concreteVolume)
+     */
     @Override
     public boolean specified(ConeEntity entity) {
         ConeProcessing processing = new ConeProcessing();

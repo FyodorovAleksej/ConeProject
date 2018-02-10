@@ -1,7 +1,14 @@
 by.fyodorov.coneproject.action
+by.fyodorov.coneproject.compare
 by.fyodorov.coneproject.entity
 by.fyodorov.coneproject.exception
 by.fyodorov.coneproject.register
+by.fyodorov.coneproject.repository
+by.fyodorov.coneproject.specification
+by.fyodorov.coneproject.specification.perimeter
+by.fyodorov.coneproject.specification.radius
+by.fyodorov.coneproject.specification.square
+by.fyodorov.coneproject.specification.volume
 by.fyodorov.coneproject.validator
 test.fyodorov.coneproject.action
 test.fyodorov.coneproject.help

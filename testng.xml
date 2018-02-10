@@ -27,8 +27,8 @@
             </class>
             <class name="test.fyodorov.coneproject.action.ConeAutoTest">
                 <methods>
-                    <include name="testCoordDivisionAll"/>
-                    <include name="testCoordStateAll"/>
+                    <include name="testCoordinateDivisionAll"/>
+                    <include name="testCoordinateStateAll"/>
                     <include name="testIsConeAll"/>
                     <include name="testSquareAll"/>
                     <include name="testVolumeAll"/>

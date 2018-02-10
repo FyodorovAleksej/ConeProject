@@ -18,6 +18,10 @@ public class ConePerimeterConcreteSpecification implements ConeSpecification {
         this.concretePerimeter = concretePerimeter;
     }
 
+    /**
+     * @param entity ConeEntity object for filtering
+     * @return is ConeEntity object perimeter equals this value (x == concreteVolume)
+     */
     @Override
     public boolean specified(ConeEntity entity) {
         ConeProcessing processing = new ConeProcessing();

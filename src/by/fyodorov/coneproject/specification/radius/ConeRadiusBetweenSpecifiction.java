@@ -10,7 +10,6 @@ import org.apache.logging.log4j.Logger;
  * class of specification by radius between bounds (min <= x <= max)
  */
 public class ConeRadiusBetweenSpecifiction implements ConeSpecification {
-    private static final Logger LOGGER = LogManager.getLogger(ConeRadiusBetweenSpecifiction.class);
     private double min;
     private double max;
     private ConeBoundsSetting settings;

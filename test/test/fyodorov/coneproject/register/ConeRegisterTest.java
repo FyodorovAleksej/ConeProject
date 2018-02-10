@@ -23,12 +23,8 @@ public class ConeRegisterTest {
     private ConeRegister register;
 
     @BeforeClass
-    public void setUp() throws Exception {
+    public void setUp() {
         register = ParameterTupleRegister.getInstance();
-    }
-
-    @AfterClass
-    public void tearDown() {
     }
 
     @AfterMethod
@@ -37,7 +33,7 @@ public class ConeRegisterTest {
     }
 
     @Test
-    public void testConeListenerPositive() throws ConeException {
+    public void testConeListenerPositive() {
         ConeEntity coneEntity = new ConeEntity(new PointEntity(1,0,0), 3, new PointEntity(5,0,0));
         coneEntity.subscribe(new ConeObserverImpl());
         coneEntity.setRadius(23);
@@ -47,7 +43,7 @@ public class ConeRegisterTest {
     }
 
     @Test
-    public void testConeListenerNegative() throws ConeException {
+    public void testConeListenerNegative() {
         ConeEntity coneEntity = new ConeEntity(new PointEntity(1,0,0), 3, new PointEntity(5,0,0));
         ConeListener observer = new ConeObserverImpl();
         coneEntity.subscribe(observer);
@@ -61,17 +57,17 @@ public class ConeRegisterTest {
 
 
     @Test
-    public void testConeRepositoryRadiusFilter() throws Exception {
+    public void testConeRepositoryRadiusFilter() {
         ConeStorable storage = ConeEntityStorageImpl.getInstance();
         ConeCreator creator = new ConeCreator();
         LinkedList<ConeEntity> list = creator.createAll("input/input.txt");
         storage.addAll(list);
-        LinkedList<ConeEntity> filtred = storage.findBySpecification(new ConeRadiusBetweenSpecifiction(1,15, ConeBoundsSetting.NONE));
-        Assert.assertEquals(filtred.size(), 1);
+        LinkedList<ConeEntity> filtered = storage.findBySpecification(new ConeRadiusBetweenSpecifiction(1,15, ConeBoundsSetting.NONE));
+        Assert.assertEquals(filtered.size(), 1);
     }
 
     @Test
-    public void testConeRepositoryVolumeFilter() throws Exception {
+    public void testConeRepositoryVolumeFilter() {
         ConeStorable storage = ConeEntityStorageImpl.getInstance();
         ConeCreator creator = new ConeCreator();
         LinkedList<ConeEntity> list = creator.createAll("input/input.txt");

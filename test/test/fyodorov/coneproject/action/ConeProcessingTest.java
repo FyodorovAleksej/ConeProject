@@ -1,23 +1,13 @@
 package test.fyodorov.coneproject.action;
 
+import by.fyodorov.coneproject.action.ConeProcessing;
 import by.fyodorov.coneproject.entity.ConeEntity;
 import by.fyodorov.coneproject.entity.PointEntity;
-import by.fyodorov.coneproject.action.ConeProcessing;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class ConeProcessingTest {
     private final static double DELTA = 0.001;
-
-    @BeforeMethod
-    public void setUp() {
-    }
-
-    @AfterMethod
-    public void tearDown() {
-    }
 
     @Test
     public void testGetSquareBasePositive() throws Exception {

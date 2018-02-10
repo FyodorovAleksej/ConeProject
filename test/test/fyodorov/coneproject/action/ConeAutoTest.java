@@ -10,56 +10,57 @@ import test.fyodorov.coneproject.help.TestHelper;
 public class ConeAutoTest {
     private final static double DELTA = 0.001;
 
-    @DataProvider(name = "CoordDivisionProvider")
-    public static Object[][] getCoordDivisionTestInput() throws Exception {
-        String actualPath = "./input/CoordDivision/actual.txt";
-        String expectedPath = "./input/CoordDivision/expected.txt";
+    @DataProvider(name = "CoordinateDivisionProvider")
+    public static Object[][] getCoordinateDivisionTestInput() throws Exception {
+        final String ACTUAL_PATH = "./input/CoordDivision/actual.txt";
+        final String EXPECTED_PATH = "./input/CoordDivision/expected.txt";
         TestHelper helper = new TestHelper();
-        return helper.coneDouble(actualPath, expectedPath);
+        return helper.coneDouble(ACTUAL_PATH, EXPECTED_PATH);
     }
 
-    @DataProvider(name = "CoordStateProvider")
-    public static Object[][] getCoordStateTestInput() throws Exception {
-        String actualPath = "./input/CoordState/actual.txt";
-        String expectedPath = "./input/CoordState/expected.txt";
+    @DataProvider(name = "CoordinateStateProvider")
+    public static Object[][] getCoordinateStateTestInput() throws Exception {
+        final String ACTUAL_PATH = "./input/CoordState/actual.txt";
+        final String EXPECTED_PATH = "./input/CoordState/expected.txt";
         TestHelper helper = new TestHelper();
-        return helper.coneBool(actualPath, expectedPath);
+        return helper.coneBool(ACTUAL_PATH, EXPECTED_PATH);
     }
 
     @DataProvider(name = "IsConeProvider")
     public static Object[][] getIsConeTestInput() throws Exception {
-        String actualPath = "./input/IsCone/actual.txt";
-        String expectedPath = "./input/IsCone/expected.txt";
+        final String ACTUAL_PATH = "./input/IsCone/actual.txt";
+        final String EXPECTED_PATH = "./input/IsCone/expected.txt";
         TestHelper helper = new TestHelper();
-        return helper.coneBool(actualPath, expectedPath);
+        return helper.coneBool(ACTUAL_PATH, EXPECTED_PATH);
     }
 
     @DataProvider(name = "SquareProvider")
     public static Object[][] getSquareTestInput() throws Exception {
-        String actualPath = "./input/Square/actual.txt";
-        String expectedPath = "./input/Square/expected.txt";
+        final String ACTUAL_PATH = "./input/Square/actual.txt";
+        final String EXPECTED_PATH = "./input/Square/expected.txt";
         TestHelper helper = new TestHelper();
-        return helper.coneDouble(actualPath, expectedPath);
+        return helper.coneDouble(ACTUAL_PATH, EXPECTED_PATH);
     }
 
     @DataProvider(name = "VolumeProvider")
     public static Object[][] getVolumeTestInput() throws Exception {
-        String actualPath = "./input/Volume/actual.txt";
-        String expectedPath = "./input/Volume/expected.txt";
+        final String ACTUAL_PATH = "./input/Volume/actual.txt";
+        final String EXPECTED_PATH = "./input/Volume/expected.txt";
         TestHelper helper = new TestHelper();
-        return helper.coneDouble(actualPath, expectedPath);
+        return helper.coneDouble(ACTUAL_PATH, EXPECTED_PATH);
     }
 
 
-    @Test(dataProvider = "CoordDivisionProvider")
-    public void testCoordDivisionAll(ConeEntity coneEntity, double expected) throws Exception {
+
+    @Test(dataProvider = "CoordinateDivisionProvider")
+    public void testCoordinateDivisionAll(ConeEntity coneEntity, double expected) throws Exception {
         ConeProcessing processing = new ConeProcessing();
         double actual = processing.calculateCoordinateDivision(coneEntity);
         Assert.assertEquals(actual, expected, DELTA, "All Coord Division Test Failed");
     }
 
-    @Test(dataProvider = "CoordStateProvider")
-    public void testCoordStateAll(ConeEntity coneEntity, boolean expected) throws Exception {
+    @Test(dataProvider = "CoordinateStateProvider")
+    public void testCoordinateStateAll(ConeEntity coneEntity, boolean expected) throws Exception {
         ConeProcessing processing = new ConeProcessing();
         boolean actual = processing.coordinateState(coneEntity);
         Assert.assertTrue(actual == expected, "All Coord State Test Failed");

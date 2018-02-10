@@ -18,6 +18,10 @@ public class ConeRadiusConcreteSpecification implements ConeSpecification {
         this.concreteRadius = concreteRadius;
     }
 
+    /**
+     * @param entity ConeEntity object for filtering
+     * @return is ConeEntity object radius equals this value (x == concreteVolume)
+     */
     @Override
     public boolean specified(ConeEntity entity) {
         ConeProcessing processing = new ConeProcessing();
